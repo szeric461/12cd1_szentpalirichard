@@ -21,6 +21,13 @@ app.get("/" , (req, res) => {
     res.send("Működik a szerver.")
 })
 
+app.get("/v" , (req, res) => {
+    const sql = "SELECT * FROM versenyzok";
+    db.query(sql, (err, result) => {
+    res.json(results)
+    }) 
+})
+
 app.listen(3000, () => {
     console.log("A téliolimpia szervere a 3000-es porton fut.")
 })
